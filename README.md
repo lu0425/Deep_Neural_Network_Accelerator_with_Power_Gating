@@ -1,1 +1,1 @@
-# Deep-Neural-Network-Accelerator-with-Power-Gating
+# Deep_Neural_Network_Accelerator_with_Power_Gating
