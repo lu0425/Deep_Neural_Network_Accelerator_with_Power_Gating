@@ -142,8 +142,7 @@ To optimize the Power Gating design, we performed **Hspice simulations** to:
 The figure below shows the complete design flow of this project. The flow proceeds from **left to right** and **top to bottom**.
 
 <div align="center">
-  <img src="media/design_flow.png" alt="Design Flow" width="600"/>
-  <p><i>Figure: Complete Design Flow from RTL to Layout</i></p>
+  <img src="media/design_flow.png" alt="Design Flow" width="900"/>
 </div>
 
 &nbsp;
