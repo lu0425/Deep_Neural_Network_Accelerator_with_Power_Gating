@@ -193,17 +193,6 @@ To optimize the Power Gating design, we performed **Hspice simulations** to:
   <p><i>Figure: Complete Design Flow from RTL to Layout</i></p>
 </div>
 
-**Design Steps**:
-1. **RTL Design**: Verilog HDL implementation of DNN accelerator
-2. **Functional Verification**: Testbench simulation
-3. **Synthesis**: Logic synthesis with Design Compiler
-4. **Power Analysis**: Power report extraction and load current calculation
-5. **Power Gating Insertion**: Add header switches to multiplier blocks
-6. **Hspice Simulation**: Power gating cell selection and sizing
-7. **Place & Route**: Physical implementation with ICC/Innovus
-8. **Post-Layout Verification**: Gate-level simulation with extracted parasitics
-9. **DRC/LVS**: Design rule check and layout vs schematic verification
-
 &nbsp;
 
 ## Implementation Status
