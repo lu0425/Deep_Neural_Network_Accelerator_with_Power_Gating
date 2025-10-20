@@ -30,7 +30,7 @@ Power Gating is a power management technique that reduces leakage power by shutt
 
 ## DNN Circuit Architecture
 
-### (一) Deep Neural Network (DNN) Overview
+### Part1. Deep Neural Network (DNN) Overview
 
 <div align="center">
   <img src="media/dnn_structure.png" alt="DNN Architecture" width="500"/>
@@ -49,29 +49,7 @@ Each neuron in a layer is connected to neurons in the adjacent layers. During th
 
 ---
 
-### (二) DNN Accelerator Architecture
-
-<div align="center">
-  <img src="media/dnn_acc_simple.png" alt="DNN Acc Simplified" width="400"/>
-  <p><i>Figure: DNN Accelerator Simplified Block Diagram</i></p>
-</div>
-
-The DNN Accelerator consists of the following main components:
-
-| Component | Description |
-|-----------|-------------|
-| **Input MEM** | Stores input neuron data |
-| **Weight MEM** | Stores weight parameters |
-| **Bias MEM** | Stores bias parameters |
-| **Multiplier** | Performs multiplication operations |
-| **Accumulator** | Accumulates multiplication results |
-| **Output MEM** | Stores output results |
-
-**Data Flow**: Input data and weights are fetched from memory, multiplied together, accumulated, and then stored in the output memory.
-
----
-
-### (三) Detailed DNN Accelerator Architecture
+### Part2. Detailed DNN Accelerator Architecture
 
 <div align="center">
   <img src="media/dnn_acc_detailed.jpg" alt="DNN Acc Detailed" width="700"/>
@@ -80,52 +58,30 @@ The DNN Accelerator consists of the following main components:
 
 The detailed architecture includes the following key modules:
 
-#### **Bus Interface Unit**
-Responsible for managing external communication and data transfer.
-
-#### **Control Unit**
-Acts as the control center, managing the entire SRAM read/write process.
-
-#### **SRAM Module**
-Stores input data and weights. Includes:
-- **Weight Memory**: Stores neural network weights
-- **Input Data Memory**: Stores input neuron values
-- **Bias Memory**: Stores bias parameters
-- **Output Data Memory**: Stores computation results
-
-#### **Memory Fetch**
-Responsible for fetching data from each memory module.
-
-#### **Multiplier**
-Performs multiply-accumulate (MAC) operations on the fetched data.
-
-#### **Accumulator**
-Accumulates the products from the multiplier to compute the weighted sum for each neuron.
-
-#### **ARS (Activation & Result Store)**
-Applies activation functions and stores the final results back to memory.
+| Module | Sub-Component | Function |
+|--------|---------------|----------|
+| **Bus Interface Unit** | - | Manages external communication and data transfer |
+| **Control Unit** | - | Acts as the control center, managing the entire SRAM read/write process |
+| **SRAM Module** | Weight Memory | Stores neural network weights |
+| | Input Data Memory | Stores input neuron values |
+| | Bias Memory | Stores bias parameters |
+| | Output Data Memory | Stores computation results |
+| **Memory Fetch** | - | Fetches data from each memory module |
+| **Multiplier** | - | Performs multiply-accumulate (MAC) operations on the fetched data |
+| **Accumulator** | - | Accumulates the products to compute the weighted sum for each neuron |
+| **ARS** | - | Applies activation functions and stores final results back to memory |
 
 ---
 
-### ⚡ SRAM Macro Replacement
-
-**Key Design Optimization**: 
+### SRAM Macro Replacement
 
 In this design, we replaced the original **flip-flop arrays** for weight and input data storage with **actual SRAM macros**:
-
-- **Original Design**: Weight Flip-Flop Array + Input Data Flip-Flop Array
-- **Optimized Design**: Weight SRAM Macro + Input Data SRAM Macro
-
-**Benefits**:
-- ✅ **Area Reduction**: SRAM is more area-efficient than flip-flops for large storage
-- ✅ **Power Efficiency**: Lower power consumption compared to flip-flop arrays
-- ✅ **Realistic Implementation**: Matches real-world hardware design practices
 
 &nbsp;
 
 ## Power Gating Design
 
-### (一) Load Current Calculation
+### Part1. Load Current Calculation
 
 To implement Power Gating effectively, we first need to determine the **load current** of the circuit. The load current is calculated as follows:
 ```
@@ -143,7 +99,7 @@ Total Power = V_supply × I_circuit
 
 ---
 
-### (二) Header vs Footer: Design Choice
+### Part2. Header vs Footer: Design Choice
 
 Power Gating can be implemented using two methods: **Header** (PMOS) or **Footer** (NMOS) switches.
 
