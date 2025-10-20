@@ -20,12 +20,6 @@ To reduce the leakage power of DNN circuits, this project incorporates **Power G
 
 Power Gating is a power management technique that reduces leakage power by shutting off power supply to inactive circuit blocks. This is achieved by inserting power switches (header or footer transistors) between the power supply and the circuit, effectively cutting off the supply voltage when the circuit is in sleep mode.
 
-### Key Benefits
-
-- ✅ **Leakage Power Reduction**: Significantly reduces static power consumption in idle states
-- ✅ **Energy Efficiency**: Improves overall power efficiency of DNN accelerators
-- ✅ **Performance Analysis**: Provides insights into power-performance trade-offs
-
 &nbsp;
 
 ## DNN Circuit Architecture
