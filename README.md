@@ -46,7 +46,7 @@ Each neuron in a layer is connected to neurons in the adjacent layers. During th
 ### Part2. Detailed DNN Accelerator Architecture
 
 <div align="center">
-  <img src="media/dnn_acc_detailed.jpg" alt="DNN Acc Detailed" width="700"/>
+  <img src="media/dnn_acc_detailed.jpg" alt="DNN Acc Detailed" width="900"/>
   <p><i>Figure: Detailed DNN Accelerator Architecture</i></p>
 </div>
 
@@ -99,7 +99,7 @@ Power Gating can be implemented using two methods: **Header** (PMOS) or **Footer
 
 <div align="center">
   <img src="media/header_footer.png" alt="Header vs Footer" width="600"/>
-  <p><i>Figure: Header and Footer Power Switch Comparison</i></p>
+  <p><i>Figure: Header (left) and Footer (right) Power Switch Circuits</i></p>
 </div>
 
 #### **Comparison: Header vs Footer**
