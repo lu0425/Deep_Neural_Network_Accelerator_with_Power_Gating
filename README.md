@@ -102,30 +102,31 @@ Power Gating can be implemented using two methods: **Header** (PMOS) or **Footer
   <p><i>Figure: Header and Footer Power Switch Comparison</i></p>
 </div>
 
-#### **Coarse Grain Footer (NMOS)**
-- Uses **NMOS transistors** as power switches
-- Creates a **Virtual GND ≈ V_DD** when in SLEEP mode
-- Body voltage is 0V in SLEEP mode
+#### **Comparison: Header vs Footer**
 
-#### **Coarse Grain Header (PMOS)**
-- Uses **PMOS transistors** as power switches
-- Creates a **Virtual V_DD = 0V** when in SLEEP mode
-- Body voltage equals V_DD in SLEEP mode
+| Aspect | Coarse Grain Footer (NMOS) | Coarse Grain Header (PMOS) |
+|--------|---------------------------|---------------------------|
+| **Transistor Type** | NMOS | PMOS |
+| **Switch Location** | Between circuit GND and actual GND | Between circuit V_DD and actual V_DD |
+| **Virtual Rail (SLEEP)** | Virtual GND ≈ V_DD | Virtual V_DD = 0V |
+| **Body Voltage (SLEEP)** | 0V | V_DD |
+| **Leakage Current** | Higher | Lower ✓ |
+| **Transistor Size** | Smaller (for same drive strength) | Larger |
 
 #### **Our Choice: Header (PMOS) Type**
 
 We selected the **Header design** for Power Gating in this project.
 
 **Rationale**:
-- ✅ **Better SLEEP Mode Performance**: In SLEEP mode, the body voltage is approximately 0V, resulting in **lower leakage current** compared to Footer
-- ✅ **PMOS Virtual V_DD Connection**: Provides more stable virtual power rail
-- ✅ **Reduced Leakage**: PMOS header configuration minimizes leakage in idle states
+-  **Better SLEEP Mode Performance**: In SLEEP mode, the body voltage is approximately 0V, resulting in **lower leakage current** compared to Footer
+-  **PMOS Virtual V_DD Connection**: Provides more stable virtual power rail
+-  **Reduced Leakage**: PMOS header configuration minimizes leakage in idle states
 
 **Trade-off**: While Header requires PMOS devices (which are typically larger than NMOS for the same drive strength), the leakage reduction benefits outweigh the area overhead in our design.
 
 ---
 
-### (三) Power Gating Cell Selection and Sizing
+### Part3. Power Gating Cell Selection and Sizing
 
 To optimize the Power Gating design, we performed **Hspice simulations** to:
 
