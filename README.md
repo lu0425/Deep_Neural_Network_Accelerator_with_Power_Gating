@@ -69,7 +69,7 @@ The detailed architecture includes the following key modules:
 
 ### SRAM Macro Replacement
 
-In this design, we replaced the original **flip-flop arrays** for weight and input data storage with **actual SRAM macros**:
+In this design, we replaced the original **flip-flop arrays** for weight and input data storage with **actual SRAM macros**.
 
 &nbsp;
 
@@ -132,7 +132,7 @@ To optimize the Power Gating design, we performed **Hspice simulations** to:
 
 1. **Select Power Gating Cell Type**: Choose appropriate header cell from the standard cell library
 2. **Determine Cell Count**: Calculate the number of parallel power switches needed
-3. **Verify Voltage Drop**: Ensure virtual VCCV meets the VCCR ≥ 97% requirement
+3. **Verify Voltage Drop**: Ensure virtual V_DD meets the VCCR ≥ 97% requirement
 4. **Validate Performance**: Confirm acceptable delay overhead
 
 &nbsp;
